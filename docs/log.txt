@@ -1,0 +1,5 @@
+python3 KBQA/KBQA/KBQA_backend.py
+Traceback (most recent call last):
+  File "KBQA/KBQA/KBQA_backend.py", line 4, in <module>
+    from flask import Flask, jsonify
+ModuleNotFoundError: No module named 'flask'
