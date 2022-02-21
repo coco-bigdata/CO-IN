@@ -1,0 +1,25 @@
+version: '3'
+services:
+
+  neo4jv3:
+    image: neo4j:3.4.0 # 3.5.5
+    volumes:
+      - ./neo4j/conf:/var/lib/neo4j/conf
+      - ./neo4j/mnt:/var/lib/neo4j/import
+      - ./neo4j/plugins:/plugins
+      - ./neo4j/data:/data
+      - ./neo4j/logs:/var/lib/neo4j/logs
+    restart: always
+    # privileged: true
+    ports:
+      - 7474:7474
+      - 7687:7687
+    networks:
+      - docker-kg
+    environment:
+      - NEO4J_dbms_memory_heap_maxSize=4G
+      - NEO4J_AUTH=neo4j/123456  #修改默认用户密码
+
+networks:
+  docker-kg:
+    external: true
