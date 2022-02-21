@@ -2,7 +2,7 @@ from py2neo import Graph
 
 
 class AnswerSearcher(object):
-    def __init__(self, uri="bolt://10.50.10.20:7687", user="neo4j", password="123456"):
+    def __init__(self, uri="bolt://neo4jv3:7687", user="neo4j", password="123456"):
         self.graph = Graph(uri, auth=(user, password))
         self.recipe_properties_list = {
             '做法': 'properties.做法',
