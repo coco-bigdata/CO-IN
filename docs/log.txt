@@ -3,3 +3,84 @@ Traceback (most recent call last):
   File "KBQA/KBQA/KBQA_backend.py", line 4, in <module>
     from flask import Flask, jsonify
 ModuleNotFoundError: No module named 'flask'
+
+python3 KBQA/KBQA/KBQA_backend.py
+Traceback (most recent call last):
+  File "KBQA/KBQA/KBQA_backend.py", line 10, in <module>
+    from KBQA.chatbot_graph import *
+  File "/home/zhangchunsheng/git/CO-IN/KBQA/KBQA/chatbot_graph.py", line 1, in <module>
+    from KBQA.answer_search import *
+  File "/home/zhangchunsheng/git/CO-IN/KBQA/KBQA/answer_search.py", line 1, in <module>
+    from py2neo import Graph
+ModuleNotFoundError: No module named 'py2neo'
+
+python3 KBQA/KBQA/KBQA_backend.py
+Traceback (most recent call last):
+  File "KBQA/KBQA/KBQA_backend.py", line 10, in <module>
+    from KBQA.chatbot_graph import *
+  File "/home/zhangchunsheng/git/CO-IN/KBQA/KBQA/chatbot_graph.py", line 2, in <module>
+    from KBQA.question_classifier import *
+  File "/home/zhangchunsheng/git/CO-IN/KBQA/KBQA/question_classifier.py", line 1, in <module>
+    import ahocorasick
+ModuleNotFoundError: No module named 'ahocorasick'
+
+python3 KBQA/KBQA/KBQA_backend.py
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/py2neo/client/__init__.py", line 806, in acquire
+    cx = self._free_list.popleft()
+IndexError: pop from an empty deque
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/py2neo/wiring.py", line 62, in open
+    s.connect(address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/py2neo/client/bolt.py", line 355, in open
+    wire = cls._connect(profile, on_broken=on_broken)
+  File "/usr/local/lib/python3.6/site-packages/py2neo/client/bolt.py", line 369, in _connect
+    wire = Wire.open(profile.address, keep_alive=True, on_broken=on_broken)
+  File "/usr/local/lib/python3.6/site-packages/py2neo/wiring.py", line 64, in open
+    raise_from(WireError("Cannot connect to %r" % (address,)), error)
+  File "<string>", line 3, in raise_from
+py2neo.wiring.WireError: Cannot connect to IPv4Address(('39.97.124.144', 7687))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "KBQA/KBQA/KBQA_backend.py", line 10, in <module>
+    from KBQA.chatbot_graph import *
+  File "/home/zhangchunsheng/git/CO-IN/KBQA/KBQA/chatbot_graph.py", line 2, in <module>
+    from KBQA.question_classifier import *
+  File "/home/zhangchunsheng/git/CO-IN/KBQA/KBQA/question_classifier.py", line 7, in <module>
+    class QuestionClassifier:
+  File "/home/zhangchunsheng/git/CO-IN/KBQA/KBQA/question_classifier.py", line 8, in QuestionClassifier
+    dc = DictConstructor()
+  File "/home/zhangchunsheng/git/CO-IN/KBQA/KBQA/dict_construct.py", line 9, in __init__
+    self.graph = Graph(uri, auth=(user, password))
+  File "/usr/local/lib/python3.6/site-packages/py2neo/database.py", line 288, in __init__
+    self.service = GraphService(profile, **settings)
+  File "/usr/local/lib/python3.6/site-packages/py2neo/database.py", line 119, in __init__
+    self._connector = Connector(profile, **connector_settings)
+  File "/usr/local/lib/python3.6/site-packages/py2neo/client/__init__.py", line 960, in __init__
+    self._add_pools(*self._initial_routers)
+  File "/usr/local/lib/python3.6/site-packages/py2neo/client/__init__.py", line 988, in _add_pools
+    on_broken=self._on_broken)
+  File "/usr/local/lib/python3.6/site-packages/py2neo/client/__init__.py", line 649, in open
+    seeds = [pool.acquire() for _ in range(init_size or cls.default_init_size)]
+  File "/usr/local/lib/python3.6/site-packages/py2neo/client/__init__.py", line 649, in <listcomp>
+    seeds = [pool.acquire() for _ in range(init_size or cls.default_init_size)]
+  File "/usr/local/lib/python3.6/site-packages/py2neo/client/__init__.py", line 813, in acquire
+    cx = self._connect()
+  File "/usr/local/lib/python3.6/site-packages/py2neo/client/__init__.py", line 766, in _connect
+    on_broken=lambda msg: self.__on_broken(msg))
+  File "/usr/local/lib/python3.6/site-packages/py2neo/client/__init__.py", line 175, in open
+    on_release=on_release, on_broken=on_broken)
+  File "/usr/local/lib/python3.6/site-packages/py2neo/client/bolt.py", line 364, in open
+    raise_from(ConnectionUnavailable("Cannot open connection to %r" % profile), error)
+  File "<string>", line 3, in raise_from
+py2neo.errors.ConnectionUnavailable: Cannot open connection to ConnectionProfile('bolt://39.97.124.144:7687')
