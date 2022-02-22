@@ -36,5 +36,14 @@ sudo docker-compose up kg-python
 sudo docker-compose up -d kg-python
 sudo docker-compose stop kg-python
 
+mysql -h127.0.0.1 -uroot -p -P3310
+root
+create database kg default character set utf8mb4 collate utf8mb4_unicode_ci;
+
+mysql -h127.0.0.1 -uroot -p -P3310 kg < ../backend/web/src/main/resources/SQLScripts/graph_layout.sql
+mysql -h127.0.0.1 -uroot -p -P3310 kg < ../backend/web/src/main/resources/SQLScripts/layout.sql
+mysql -h127.0.0.1 -uroot -p -P3310 kg < ../backend/web/src/main/resources/SQLScripts/project.sql
+mysql -h127.0.0.1 -uroot -p -P3310 kg < ../backend/web/src/main/resources/SQLScripts/t_user.sql
+
 sudo docker network create --subnet=172.20.0.0/16 docker-kg
 ```
