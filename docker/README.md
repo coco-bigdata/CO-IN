@@ -10,6 +10,7 @@ cd backend
 mvn clean package
 mvn clean package -DskipTests
 
+cd docker
 sudo docker-compose up kg-java
 sudo docker-compose up -d kg-java
 sudo docker-compose down
