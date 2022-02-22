@@ -8,6 +8,7 @@ sudo pip3 install pyahocorasick -i https://pypi.tuna.tsinghua.edu.cn/simple/
 
 cd backend
 mvn clean package
+mvn clean package -DskipTests
 ```
 
 ```
