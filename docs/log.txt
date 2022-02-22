@@ -84,3 +84,10 @@ Traceback (most recent call last):
     raise_from(ConnectionUnavailable("Cannot open connection to %r" % profile), error)
   File "<string>", line 3, in raise_from
 py2neo.errors.ConnectionUnavailable: Cannot open connection to ConnectionProfile('bolt://39.97.124.144:7687')
+
+sudo docker-compose up redis
+WARNING: Found orphan containers (pumpkinjob-agent1, pumpkinjob-agent, pumpkinjob-mysql, pumpkinjob-server, pumpkin-fe, pumpkinjob-mongodb, pumpkinjob-mongo-express) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.
+Starting docker-redis ... done
+Attaching to docker-redis
+docker-redis | /bin/bash: line 1: /proc/sys/net/core/somaxconn: Read-only file system
+docker-redis exited with code 1
