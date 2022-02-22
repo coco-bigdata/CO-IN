@@ -44,4 +44,4 @@ spring:
 
 # python微服务
 pyserver:
-  url: http://127.0.0.1:5000
+  url: http://kg-python:5000
