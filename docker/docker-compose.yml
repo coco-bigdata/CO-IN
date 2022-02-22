@@ -56,6 +56,23 @@ services:
     networks:
       - docker-kg
 
+  kg-python:
+    image: redis
+    container_name: kg-python
+    volumes:
+      - ./redis/data:/data
+      - ./redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis/logs:/logs
+    command:
+      #      两个写入操作 只是为了解决启动后警告 可以去掉
+      /bin/bash -c "echo 511 > /proc/sys/net/core/somaxconn
+      && echo never > /sys/kernel/mm/transparent_hugepage/enabled
+      && redis-server /usr/local/etc/redis/redis.conf"
+    ports:
+      - 6379:6379
+    networks:
+      - docker-kg
+
 networks:
   docker-kg:
     external: true
