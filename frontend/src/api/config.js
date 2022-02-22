@@ -1,1 +1,1 @@
-export const baseURL = 'http://localhost:8001'
+export const baseURL = 'https://kg.7otech.com'

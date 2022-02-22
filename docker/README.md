@@ -11,6 +11,8 @@ mvn clean package
 mvn clean package -DskipTests
 
 cd docker
+cp ../backend/web/target/coin-web-1.0-SNAPSHOT.jar kg-java/coin-web.jar
+
 sudo docker-compose up kg-java
 sudo docker-compose up -d kg-java
 sudo docker-compose down
