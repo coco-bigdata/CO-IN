@@ -35,4 +35,6 @@ sudo docker-compose stop redis
 sudo docker-compose up kg-python
 sudo docker-compose up -d kg-python
 sudo docker-compose stop kg-python
+
+sudo docker network create --subnet=172.20.0.0/16 docker-kg
 ```
