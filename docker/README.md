@@ -24,6 +24,9 @@ sudo docker-compose up neo4jv3
 sudo docker-compose up -d neo4jv3
 sudo docker-compose stop neo4jv3
 
+chmod 777 neo4j/logs
+docker-compose logs -f
+
 sudo docker-compose up mysql80
 sudo docker-compose up -d mysql80
 sudo docker-compose stop mysql80
