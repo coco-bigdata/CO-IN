@@ -82,6 +82,8 @@ services:
     depends_on:
       - mysql80
     restart: always
+    networks:
+      - docker-kg
 
 networks:
   docker-kg:
