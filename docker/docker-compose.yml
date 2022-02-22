@@ -46,6 +46,7 @@ services:
       - ./redis/data:/data
       - ./redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
       - ./redis/logs:/logs
+    privileged: true
     command:
       #      两个写入操作 只是为了解决启动后警告 可以去掉
       /bin/bash -c "echo 511 > /proc/sys/net/core/somaxconn
