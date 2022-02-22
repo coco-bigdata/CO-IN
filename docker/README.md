@@ -39,6 +39,10 @@ sudo docker-compose up kg-python
 sudo docker-compose up -d kg-python
 sudo docker-compose stop kg-python
 
+sudo docker-compose up kg-java
+sudo docker-compose up -d kg-java
+sudo docker-compose stop kg-java
+
 mysql -h127.0.0.1 -uroot -p -P3310
 root
 create database kg default character set utf8mb4 collate utf8mb4_unicode_ci;

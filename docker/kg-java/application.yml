@@ -1,0 +1,47 @@
+server:
+  port: 8001
+
+# mybatis配置
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+#  spring配置
+spring:
+  application:
+    name: springcloud-provider-dept
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql80:3306/kg?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+  data:
+    neo4j:
+      uri: bolt://neo4jv3:7687
+      username: neo4j
+      password: 123456
+
+  redis:
+    host: redis
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+    lettuce:
+      shutdown-timeout: 0
+
+  transaction:
+    rollback-on-commit-failure: true
+
+
+# python微服务
+pyserver:
+  url: http://kg-python:5000

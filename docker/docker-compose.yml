@@ -70,6 +70,19 @@ services:
     networks:
       - docker-kg
 
+  kg-java:
+    build:
+      context: kg-java
+      dockerfile: Dockerfile
+    container_name: kg-java
+    ports:
+      - "8012:8001"
+    volumes:
+      - /etc/localtime:/etc/localtime
+    depends_on:
+      - mysql80
+    restart: always
+
 networks:
   docker-kg:
     external: true
