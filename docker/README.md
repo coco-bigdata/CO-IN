@@ -57,3 +57,9 @@ mysql -h127.0.0.1 -uroot -p -P3310 kg < ../backend/web/src/main/resources/SQLScr
 
 sudo docker network create --subnet=172.20.0.0/16 docker-kg
 ```
+
+```
+http://localhost:8080/
+test
+test
+```
