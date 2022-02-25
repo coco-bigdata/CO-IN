@@ -30,4 +30,6 @@ java rsa 公钥 私钥
 java Data must not be longer than 128 bytes
 java rsa PKCS8EncodedKeySpec
 rsa 减少私钥长度
+
+https://www.cnblogs.com/isyaya/p/11073149.html
 ```
