@@ -104,6 +104,26 @@ public class ExampleTest {
             byte[] dataBytes = data.getBytes();
             byte[] encodedData = RSAUtils.encryptByPrivateKey(dataBytes, privateKey.toString());
             System.out.println("加密后：\r\n" + new String(encodedData)); //加密后乱码是正常的
+
+            InputStream in = null;
+            byte[] cipherData = null;
+
+            in = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/com/example/test1.licence");
+            final int len = in.available();
+            cipherData = new byte[len];
+            in.read(cipherData);
+
+            InputStream pubIn;
+            // pubIn = ExampleTest.class.getClassLoader().getResourceAsStream("public.crt");
+            pubIn = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/com/example/public1.crt");
+            PublicKey pubKey = getPublicKey(ReadTest.read(pubIn));
+
+            final Cipher cipher = Cipher.getInstance("RSA");
+            cipher.init(2, pubKey);
+
+            byte[] bytes1 = cipher.doFinal(cipherData);
+            String result = new String(bytes1);
+            System.out.println(result);
         } catch(Exception e) {
             e.printStackTrace();
         }
