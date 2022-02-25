@@ -21,18 +21,22 @@ public class ExampleTest {
             byte[] cipherData = null;
 
             ObjectMapper mapper = new ObjectMapper();
-            in = new FileInputStream("test.licence");
+            in = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/com/example/test.licence");
             final int len = in.available();
             cipherData = new byte[len];
             in.read(cipherData);
 
-            InputStream pubIn = ExampleTest.class.getClassLoader().getResourceAsStream("public.crt");
+            InputStream pubIn;
+            // pubIn = ExampleTest.class.getClassLoader().getResourceAsStream("public.crt");
+            pubIn = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/com/example/public.crt");
             PublicKey pubKey = getPublicKey(ReadTest.read(pubIn));
 
             final Cipher cipher = Cipher.getInstance("RSA");
             cipher.init(2, pubKey);
 
-            System.out.println(cipher.doFinal(cipherData));
+            byte[] bytes = cipher.doFinal(cipherData);// [B@25b485ba
+            String result = new String(bytes);
+            System.out.println(result);
         } catch(Exception e) {
             e.printStackTrace();
         }
