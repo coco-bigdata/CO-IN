@@ -1,5 +1,6 @@
 package com.example;
 
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -83,6 +84,10 @@ public class ExampleTest {
 
             String sign = c(resultMap);// 8CAE88E0-F70DC710-2988BA2E-B07CE5C5
             System.out.println(sign);
+            resultMap.put("sign", sign);
+
+            String data = JSONObject.toJSONString(resultMap);
+            System.out.println(data);
         } catch(Exception e) {
             e.printStackTrace();
         }
