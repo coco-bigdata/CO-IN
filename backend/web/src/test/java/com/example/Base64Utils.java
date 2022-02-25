@@ -31,7 +31,7 @@ public class Base64Utils {
      * 文件读取缓冲区大小
      */
     private static final int CACHE_SIZE = 1024;
-    private static final int CACHE_SIZE1 = 128;
+    private static final int CACHE_SIZE1 = 127;
 
     /** *//**
      * <p>
@@ -140,6 +140,7 @@ public class Base64Utils {
         int nRead = 0;
         while ((nRead = in.read(cache)) != -1) {
             out.write(cache, 0, nRead);
+            out.write("\n".getBytes());
             out.flush();
         }
         out.close();
