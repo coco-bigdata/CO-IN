@@ -1,10 +1,10 @@
-package cn.sliverwork.framework.util.user;
+package cn.example.framework.util.user;
 
-import cn.sliverwork.application.entity.user.*;
+import cn.example.application.entity.user.*;
 import java.net.*;
-import cn.sliverwork.framework.util.command.*;
+import cn.example.framework.util.command.*;
 import java.math.*;
-import cn.sliverwork.framework.util.encrypt.*;
+import cn.example.framework.util.encrypt.*;
 import java.security.spec.*;
 import javax.crypto.*;
 import java.security.*;
@@ -20,7 +20,7 @@ public class b
     private static final int cY = 2048;
     private static final String regex = "(.{8})";
     private static final String PATH;
-    private static final String salt = "sliverworkspace.com";
+    private static final String salt = "examplespace.com";
     private static final String personal = "dacbaf863df5baf6d5905fb1cb1b2cca";
     private static final String cZ = "582f2372ca70788b56f18078111d466b";
     private static final String enterprise = "833763880d94595303c032e46591fb91";
@@ -153,7 +153,7 @@ public class b
     }
 
     private static byte[] a(final byte[] cipherData, final InputStream in) throws Exception {
-        final PublicKey pubKey = getPublicKey(cn.sliverwork.framework.util.user.a.read(in));
+        final PublicKey pubKey = getPublicKey(cn.example.framework.util.user.a.read(in));
         final byte[] plainData = a(cipherData, pubKey);
         return plainData;
     }
@@ -182,7 +182,7 @@ public class b
             final ObjectMapper mapper = new ObjectMapper();
             mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
             try {
-                final File f = new File(b.PATH + File.separator + "sliver.licence");
+                final File f = new File(b.PATH + File.separator + "test.licence");
                 if (!f.exists()) {
                     mp = new HashMap<String, String>();
                     mp.put("code", machineCode);
@@ -190,7 +190,7 @@ public class b
                     mp.put("message", "\u6ca1\u6709\u6388\u6743\u6587\u4ef6");// 没有授权文件
                     return mp;
                 }
-                in = new FileInputStream(b.PATH + File.separator + "sliver.licence");
+                in = new FileInputStream(b.PATH + File.separator + "test.licence");
                 final int len = in.available();
                 cipherData = new byte[len];
                 in.read(cipherData);
@@ -379,7 +379,7 @@ public class b
     }
 
     public static Map<String, String> getLicenceInfo() {
-        final String path = b.PATH + File.separator + "sliver.licence";
+        final String path = b.PATH + File.separator + "test.licence";
         return ad(path);
     }
 
@@ -389,20 +389,20 @@ public class b
 
     public static boolean f(final Map<String, String> info) {
         final String edition = info.get("edition");
-        return null != edition && !"".equals(edition) && EncryptUtil.n(edition, "sliverworkspace.com").equals("833763880d94595303c032e46591fb91");
+        return null != edition && !"".equals(edition) && EncryptUtil.n(edition, "examplespace.com").equals("833763880d94595303c032e46591fb91");
     }
 
     public static boolean g(final Map<String, String> info) {
         final String edition = info.get("edition");
-        return null != edition && !"".equals(edition) && EncryptUtil.n(edition, "sliverworkspace.com").equals("582f2372ca70788b56f18078111d466b");
+        return null != edition && !"".equals(edition) && EncryptUtil.n(edition, "examplespace.com").equals("582f2372ca70788b56f18078111d466b");
     }
 
     public static boolean h(final Map<String, String> info) {
         final String edition = info.get("edition");
-        return null != edition && !"".equals(edition) && EncryptUtil.n(edition, "sliverworkspace.com").equals("dacbaf863df5baf6d5905fb1cb1b2cca");
+        return null != edition && !"".equals(edition) && EncryptUtil.n(edition, "examplespace.com").equals("dacbaf863df5baf6d5905fb1cb1b2cca");
     }
 
     static {
-        PATH = cn.sliverwork.framework.util.yml.a.get("sliverwork.conf");
+        PATH = cn.example.framework.util.yml.a.get("example.conf");
     }
 }
