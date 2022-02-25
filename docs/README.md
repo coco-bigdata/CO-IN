@@ -13,4 +13,6 @@ mvn clean package -DskipTests
 
 ```
 docker-compose redis
+
+java RSA license
 ```
