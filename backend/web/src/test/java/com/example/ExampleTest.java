@@ -146,6 +146,15 @@ public class ExampleTest {
         }
     }
 
+    @Test
+    public void test2() {
+        Map<String, String> resultMap = new HashMap<String, String>();
+        String edition = "社区版";
+        resultMap.put("edition", edition);
+        String result;
+        result = EncryptUtil.n(edition, "examplespace.com");
+    }
+
     private static String c(final Map<String, String> map) {
         final String sign = EncryptUtil.n(map.toString(), "").replaceAll("(.{8})", "$1-").toUpperCase();
         return sign.substring(0, sign.length() - 1);
@@ -155,5 +164,20 @@ public class ExampleTest {
         final byte[] encPubKey = Base64.getDecoder().decode(pubKeyBase64);
         final X509EncodedKeySpec encPubKeySpec = new X509EncodedKeySpec(encPubKey);
         return KeyFactory.getInstance("RSA").generatePublic(encPubKeySpec);
+    }
+
+    public static boolean f(final Map<String, String> info) {
+        final String edition = info.get("edition");
+        return null != edition && !"".equals(edition) && EncryptUtil.n(edition, "examplespace.com").equals("833763880d94595303c032e46591fb91");
+    }
+
+    public static boolean g(final Map<String, String> info) {
+        final String edition = info.get("edition");
+        return null != edition && !"".equals(edition) && EncryptUtil.n(edition, "examplespace.com").equals("582f2372ca70788b56f18078111d466b");
+    }
+
+    public static boolean h(final Map<String, String> info) {
+        final String edition = info.get("edition");
+        return null != edition && !"".equals(edition) && EncryptUtil.n(edition, "examplespace.com").equals("dacbaf863df5baf6d5905fb1cb1b2cca");
     }
 }
