@@ -32,4 +32,5 @@ java rsa PKCS8EncodedKeySpec
 rsa 减少私钥长度
 
 https://www.cnblogs.com/isyaya/p/11073149.html
+https://blog.csdn.net/fenfenguai/article/details/88286428
 ```
