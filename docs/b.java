@@ -187,7 +187,7 @@ public class b
                     mp = new HashMap<String, String>();
                     mp.put("code", machineCode);
                     mp.put("status", "False");
-                    mp.put("message", "\u6ca1\u6709\u6388\u6743\u6587\u4ef6");
+                    mp.put("message", "\u6ca1\u6709\u6388\u6743\u6587\u4ef6");// 没有授权文件
                     return mp;
                 }
                 in = new FileInputStream(b.PATH + File.separator + "sliver.licence");
@@ -200,7 +200,7 @@ public class b
                 mp = new HashMap<String, String>();
                 mp.put("code", machineCode);
                 mp.put("status", "False");
-                mp.put("message", "\u6ca1\u6709\u6388\u6743\u6587\u4ef6");
+                mp.put("message", "\u6ca1\u6709\u6388\u6743\u6587\u4ef6");// 没有授权文件
                 return mp;
             }
             catch (IOException e2) {
@@ -208,7 +208,7 @@ public class b
                 mp = new HashMap<String, String>();
                 mp.put("code", machineCode);
                 mp.put("status", "False");
-                mp.put("message", "\u6ca1\u6709\u6388\u6743\u6587\u4ef6");
+                mp.put("message", "\u6ca1\u6709\u6388\u6743\u6587\u4ef6");// 没有授权文件
                 return mp;
             }
             finally {
@@ -237,7 +237,7 @@ public class b
                 if (!status) {
                     mp.put("code", machineCode);
                     mp.put("status", "False");
-                    mp.put("message", "\u6388\u6743\u6587\u4ef6\u7b7e\u540d\u9519\u8bef");
+                    mp.put("message", "\u6388\u6743\u6587\u4ef6\u7b7e\u540d\u9519\u8bef");// 授权文件签名错误
                     return mp;
                 }
                 if (h(mp)) {
@@ -245,7 +245,7 @@ public class b
                 }
                 if (!machineCode.equals(mp.get("code"))) {
                     mp.put("status", "False");
-                    mp.put("message", "\u6388\u6743\u6587\u4ef6Code\u4e0d\u4e00\u81f4:" + mp.get("code"));
+                    mp.put("message", "\u6388\u6743\u6587\u4ef6Code\u4e0d\u4e00\u81f4:" + mp.get("code"));// 授权文件Code不一致
                     mp.put("code", machineCode);
                     return mp;
                 }
@@ -255,7 +255,7 @@ public class b
                 if (!f(mp)) {
                     mp.put("code", machineCode);
                     mp.put("status", "False");
-                    mp.put("message", "\u7248\u672c\u4fe1\u606f\u9519\u8bef");
+                    mp.put("message", "\u7248\u672c\u4fe1\u606f\u9519\u8bef");// 版本信息错误
                     return mp;
                 }
                 final Date current = new Date();
@@ -264,20 +264,20 @@ public class b
                 final Date expiry = df.parse(mp.get("expiry"));
                 if (start.getTime() > current.getTime() || expiry.getTime() < current.getTime()) {
                     mp.put("status", "False");
-                    mp.put("message", "\u6388\u6743\u5df2\u8fc7\u671f");
+                    mp.put("message", "\u6388\u6743\u5df2\u8fc7\u671f");// 授权已过期
                     return mp;
                 }
             }
             catch (IOException e5) {
                 e5.printStackTrace();
                 mp.put("status", "False");
-                mp.put("message", "\u6388\u6743\u6587\u4ef6\u9519\u8bef:" + mp.get("code"));
+                mp.put("message", "\u6388\u6743\u6587\u4ef6\u9519\u8bef:" + mp.get("code"));// 授权文件错误
                 mp.put("code", machineCode);
                 return mp;
             }
             catch (ParseException pe) {
                 mp.put("status", "False");
-                mp.put("message", "\u6388\u6743\u6587\u4ef6\u9519\u8bef:" + mp.get("code"));
+                mp.put("message", "\u6388\u6743\u6587\u4ef6\u9519\u8bef:" + mp.get("code"));// 授权文件错误
                 mp.put("code", machineCode);
                 return mp;
             }
@@ -287,7 +287,7 @@ public class b
             mp = new HashMap<String, String>();
             mp.put("code", machineCode);
             mp.put("status", "False");
-            mp.put("message", "\u6ca1\u6709\u6388\u6743\u6587\u4ef6");
+            mp.put("message", "\u6ca1\u6709\u6388\u6743\u6587\u4ef6");// 没有授权文件
             return mp;
         }
         return null;
