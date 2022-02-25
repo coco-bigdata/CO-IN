@@ -214,6 +214,10 @@ public class ExampleTest {
         edition = "SliverWorkspace 2.0.375427";
         result = EncryptUtil.n(edition, "examplespace.com");
         System.out.println(result);// e993c44f452d17143aa2ad373625c9d8
+
+        edition = "personal 2.0.375427";
+        result = EncryptUtil.n(edition, "examplespace.com");
+        System.out.println(result);// e0773b9c6908f754e54727dccdbb95fa
     }
 
     private static String c(final Map<String, String> map) {
