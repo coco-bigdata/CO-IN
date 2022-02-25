@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import org.junit.Test;
 
 import javax.crypto.Cipher;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.security.KeyFactory;
@@ -104,6 +105,8 @@ public class ExampleTest {
             byte[] dataBytes = data.getBytes();
             byte[] encodedData = RSAUtils.encryptByPrivateKey(dataBytes, privateKey.toString());
             System.out.println("加密后：\r\n" + new String(encodedData)); //加密后乱码是正常的
+
+            Base64Utils.byteArrayToFile(encodedData, System.getProperty("user.dir") + "/src/test/java/com/example/test1.licence");
 
             InputStream in = null;
             byte[] cipherData = null;
