@@ -153,6 +153,7 @@ public class ExampleTest {
         resultMap.put("edition", edition);
         String result;
         result = EncryptUtil.n(edition, "examplespace.com");
+        System.out.println(result);// f0b5cd928354ad37faa2f2f3cba6225b
     }
 
     private static String c(final Map<String, String> map) {
