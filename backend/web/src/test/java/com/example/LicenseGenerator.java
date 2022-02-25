@@ -45,6 +45,8 @@ public class LicenseGenerator {
         byte[] encodedData = RSAUtils.encryptByPrivateKey(data, privateKey);
         System.out.println("加密后：\r\n" + new String(encodedData)); //加密后乱码是正常的
 
+        System.out.println("len=" + encodedData.length);
+
         Base64Utils.byteArrayToFile(encodedData, FileUtil.getBasePath()+File.separator+"license.dat");
         System.out.println("license.dat：\r\n" + FileUtil.getBasePath()+File.separator+"license.dat");
 
