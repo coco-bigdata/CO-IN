@@ -182,6 +182,10 @@ public class ExampleTest {
         edition = "personal";
         result = EncryptUtil.n(edition, "examplespace.com");
         System.out.println(result);// da1cfc84d3cb12b445bb848ee52835db
+
+        edition = "专业版";
+        result = EncryptUtil.n(edition, "examplespace.com");
+        System.out.println(result);// 92f1f6f3b5e49ff23beca1734d934043
     }
 
     private static String c(final Map<String, String> map) {
