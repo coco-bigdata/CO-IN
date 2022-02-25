@@ -202,6 +202,10 @@ public class ExampleTest {
         edition = "个人授权";
         result = EncryptUtil.n(edition, "examplespace.com");
         System.out.println(result);// 3869391e35a7db453c74b86c60fc2507
+
+        edition = "SliverWorkspace";
+        result = EncryptUtil.n(edition, "examplespace.com");
+        System.out.println(result);// 60cb932bbd83479019b67c40614da3d4
     }
 
     private static String c(final Map<String, String> map) {
