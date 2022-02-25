@@ -31,6 +31,7 @@ public class Base64Utils {
      * 文件读取缓冲区大小
      */
     private static final int CACHE_SIZE = 1024;
+    private static final int CACHE_SIZE1 = 128;
 
     /** *//**
      * <p>
@@ -135,7 +136,7 @@ public class Base64Utils {
 //        }
         destFile.createNewFile();
         OutputStream out = new FileOutputStream(destFile);
-        byte[] cache = new byte[CACHE_SIZE];
+        byte[] cache = new byte[CACHE_SIZE1];
         int nRead = 0;
         while ((nRead = in.read(cache)) != -1) {
             out.write(cache, 0, nRead);
