@@ -60,7 +60,7 @@ public class CreateSecrteKey {
     public static Map<String, Object> initKey() throws Exception {
         //获得对象 KeyPairGenerator 参数 RSA 1024个字节
         KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(KEY_ALGORITHM);
-        keyPairGen.initialize(1024);
+        keyPairGen.initialize(2048);
         //通过对象 KeyPairGenerator 获取对象KeyPair
         KeyPair keyPair = keyPairGen.generateKeyPair();
 
