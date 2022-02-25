@@ -11,6 +11,15 @@ mvn clean package
 mvn clean package -DskipTests
 
 ssh-keygen -t rsa -C '1097692918@qq.com'
+
+jar -vtf example.jar|grep public.crt
+   392 Mon Jan 03 17:35:22 CST 2022 BOOT-INF/classes/licence/public.crt
+   
+jar -xvf example.jar BOOT-INF/classes/licence/public.crt
+ inflated: BOOT-INF/classes/licence/public.crt
+ 
+jar -uvf example.jar BOOT-INF/classes/licence/public.crt 
+adding: BOOT-INF/classes/licence/public.crt(in = 392) (out= 325)(deflated 17%)
 ```
 
 ```
