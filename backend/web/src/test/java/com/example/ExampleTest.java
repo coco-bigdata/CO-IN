@@ -89,6 +89,8 @@ public class ExampleTest {
             resultMap.put("sign", sign);
 
             String data = JSONObject.toJSONString(resultMap);
+            //{"code":"00000000-00000000-00000000-00000000","organization":"商业版","start":"2020-01-01","sign":"8CAE88E0-F70DC710-2988BA2E-B07CE5C5","edition":"商业版","expiry":"2030-01-01"}
+            data = "test";
             System.out.println(data);
 
             InputStream key = null;
@@ -101,7 +103,7 @@ public class ExampleTest {
                 privateKey.append(new String(bytes, 0, length));//将数据变为字符串输出
             }
             key.close();//关闭流
-            System.out.println(privateKey);
+            // System.out.println(privateKey);
 
             byte[] dataBytes = data.getBytes();
             byte[] encodedData = RSAUtils.encryptByPrivateKey(dataBytes, privateKey.toString());
