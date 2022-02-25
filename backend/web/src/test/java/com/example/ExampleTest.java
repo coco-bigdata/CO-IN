@@ -88,6 +88,22 @@ public class ExampleTest {
 
             String data = JSONObject.toJSONString(resultMap);
             System.out.println(data);
+
+            InputStream key = null;
+            key = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/com/example/private1.key");
+
+            int length;
+            byte[] bytes = new byte[1024];
+            StringBuilder privateKey = new StringBuilder();
+            while ((length = key.read(bytes)) != -1) {
+                privateKey.append(new String(bytes, 0, length));//将数据变为字符串输出
+            }
+            key.close();//关闭流
+            System.out.println(privateKey);
+
+            byte[] dataBytes = data.getBytes();
+            byte[] encodedData = RSAUtils.encryptByPrivateKey(dataBytes, privateKey.toString());
+            System.out.println("加密后：\r\n" + new String(encodedData)); //加密后乱码是正常的
         } catch(Exception e) {
             e.printStackTrace();
         }
