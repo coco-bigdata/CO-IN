@@ -28,6 +28,7 @@ public class ExampleTest {
 
             in = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/com/example/test.licence");
             final int len = in.available();
+            System.out.println("len=" + len);
             cipherData = new byte[len];
             in.read(cipherData);
 
@@ -113,6 +114,7 @@ public class ExampleTest {
 
             in = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/com/example/test1.licence");
             final int len = in.available();
+            System.out.println("len=" + len);
             cipherData = new byte[len];
             in.read(cipherData);
 
