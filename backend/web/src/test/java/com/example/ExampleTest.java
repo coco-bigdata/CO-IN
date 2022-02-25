@@ -88,9 +88,17 @@ public class ExampleTest {
             System.out.println(sign);
             resultMap.put("sign", sign);
 
-            String data = JSONObject.toJSONString(resultMap);
+            String data = "";
+            data = "{\n" +
+                    "  \"code\" : \"00000000-00000000-00000000-00000000\",\n" +
+                    "  \"organization\" : \"社区版\",\n" +
+                    "  \"start\" : \"2020-01-01\",\n" +
+                    "  \"sign\" : \"63932CC5-E9762317-571074D8-33A8B312\",\n" +
+                    "  \"edition\" : \"社区版\",\n" +
+                    "  \"expiry\" : \"2030-01-01\"\n" +
+                    "}";
+            data = JSONObject.toJSONString(resultMap);
             //{"code":"00000000-00000000-00000000-00000000","organization":"商业版","start":"2020-01-01","sign":"8CAE88E0-F70DC710-2988BA2E-B07CE5C5","edition":"商业版","expiry":"2030-01-01"}
-            data = "test";
             System.out.println(data);
 
             InputStream key = null;
