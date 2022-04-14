@@ -78,7 +78,7 @@ public class ExampleTest {
             final ObjectMapper mapper = new ObjectMapper();
             mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
 
-            resultMap.put("code", "A4BD344E-D1B9A3E6-F2BB998E-1C32A102");
+            resultMap.put("code", "6699933C-D2E8A7BE-33738205-AA238837");
             resultMap.put("organization", "商业版");
             resultMap.put("start", "2020-01-01");
             resultMap.put("edition", "商业版");
