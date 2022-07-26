@@ -6,6 +6,15 @@ sudo pip3 install py2neo
 sudo yum install python3-devel
 sudo pip3 install pyahocorasick -i https://pypi.tuna.tsinghua.edu.cn/simple/
 
+sudo docker-compose ps
+sudo docker exec -it docker_neo4jv3_1 bash
+ls neo4j/data/
+ls neo4j/logs/
+sudo chown -R 100:100 neo4j/logs/
+sudo docker-compose stop neo4jv3
+sudo docker-compose start neo4jv3
+sudo docker-compose logs -f neo4jv3
+
 cd backend
 mvn clean package
 mvn clean package -DskipTests
