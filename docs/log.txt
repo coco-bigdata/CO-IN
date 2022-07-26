@@ -91,3 +91,69 @@ Starting docker-redis ... done
 Attaching to docker-redis
 docker-redis | /bin/bash: line 1: /proc/sys/net/core/somaxconn: Read-only file system
 docker-redis exited with code 1
+
+neo4jv3_1    | Changed password for user 'neo4j'.
+neo4jv3_1    | Active database: graph.db
+neo4jv3_1    | Directories in use:
+neo4jv3_1    |   home:         /var/lib/neo4j
+neo4jv3_1    |   config:       /var/lib/neo4j/conf
+neo4jv3_1    |   logs:         /var/lib/neo4j/logs
+neo4jv3_1    |   plugins:      /plugins
+neo4jv3_1    |   import:       NOT SET
+neo4jv3_1    |   data:         /var/lib/neo4j/data
+neo4jv3_1    |   certificates: /var/lib/neo4j/certificates
+neo4jv3_1    |   run:          /var/lib/neo4j/run
+neo4jv3_1    | Starting Neo4j.
+docker-mysql | 2022-07-26 02:50:35+00:00 [Note] [Entrypoint]: Database files initialized
+docker-mysql | 2022-07-26 02:50:35+00:00 [Note] [Entrypoint]: Starting temporary server
+neo4jv3_1    | 2022-07-26 02:50:36.162+0000 WARN  Unknown config option: causal_clustering.discovery_listen_address
+neo4jv3_1    | 2022-07-26 02:50:36.166+0000 WARN  Unknown config option: causal_clustering.raft_advertised_address
+neo4jv3_1    | 2022-07-26 02:50:36.166+0000 WARN  Unknown config option: causal_clustering.raft_listen_address
+neo4jv3_1    | 2022-07-26 02:50:36.166+0000 WARN  Unknown config option: ha.host.coordination
+neo4jv3_1    | 2022-07-26 02:50:36.166+0000 WARN  Unknown config option: causal_clustering.transaction_advertised_address
+neo4jv3_1    | 2022-07-26 02:50:36.166+0000 WARN  Unknown config option: causal_clustering.discovery_advertised_address
+neo4jv3_1    | 2022-07-26 02:50:36.166+0000 WARN  Unknown config option: ha.host.data
+neo4jv3_1    | 2022-07-26 02:50:36.166+0000 WARN  Unknown config option: causal_clustering.transaction_listen_address
+neo4jv3_1    | 2022-07-26 02:50:36.184+0000 INFO  ======== Neo4j 3.4.0 ========
+docker-mysql | 2022-07-26T02:50:36.185473Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+docker-mysql | 2022-07-26T02:50:36.185504Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.27) starting as process 93
+docker-mysql | 2022-07-26T02:50:36.212546Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+neo4jv3_1    | 2022-07-26 02:50:36.225+0000 INFO  Starting...
+neo4jv3_1    | 2022-07-26 02:50:36.281+0000 ERROR Failed to start Neo4j: Starting Neo4j failed: Component 'org.neo4j.server.database.LifecycleManagingDatabase@71a794e5' was successfully initialized, but failed to start. Please see the attached cause exception "/var/lib/neo4j/logs/debug.log (Permission denied)". Starting Neo4j failed: Component 'org.neo4j.server.database.LifecycleManagingDatabase@71a794e5' was successfully initialized, but failed to start. Please see
+the attached cause exception "/var/lib/neo4j/logs/debug.log (Permission denied)".
+neo4jv3_1    | org.neo4j.server.ServerStartupException: Starting Neo4j failed: Component 'org.neo4j.server.database.LifecycleManagingDatabase@71a794e5' was successfully initialized, but failed to start. Please see the attached cause exception "/var/lib/neo4j/logs/debug.log (Permission denied)".
+neo4jv3_1    |  at org.neo4j.server.exception.ServerStartupErrors.translateToServerStartupError(ServerStartupErrors.java:68)
+neo4jv3_1    |  at org.neo4j.server.AbstractNeoServer.start(AbstractNeoServer.java:220)
+neo4jv3_1    |  at org.neo4j.server.ServerBootstrapper.start(ServerBootstrapper.java:111)
+neo4jv3_1    |  at org.neo4j.server.ServerBootstrapper.start(ServerBootstrapper.java:79)
+neo4jv3_1    |  at org.neo4j.server.CommunityEntryPoint.main(CommunityEntryPoint.java:32)
+neo4jv3_1    | Caused by: org.neo4j.kernel.lifecycle.LifecycleException: Component 'org.neo4j.server.database.LifecycleManagingDatabase@71a794e5' was successfully initialized, but failed to start. Please see the attached cause exception "/var/lib/neo4j/logs/debug.log (Permission denied)".
+neo4jv3_1    |  at org.neo4j.kernel.lifecycle.LifeSupport$LifecycleInstance.start(LifeSupport.java:466)
+neo4jv3_1    |  at org.neo4j.kernel.lifecycle.LifeSupport.start(LifeSupport.java:107)
+neo4jv3_1    |  at org.neo4j.server.AbstractNeoServer.start(AbstractNeoServer.java:212)
+neo4jv3_1    |  ... 3 more
+neo4jv3_1    | Caused by: java.lang.RuntimeException: java.io.FileNotFoundException: /var/lib/neo4j/logs/debug.log (Permission denied)
+neo4jv3_1    |  at org.neo4j.kernel.impl.factory.PlatformModule.createLogService(PlatformModule.java:297)
+neo4jv3_1    |  at org.neo4j.kernel.impl.factory.PlatformModule.<init>(PlatformModule.java:161)
+neo4jv3_1    |  at org.neo4j.kernel.impl.factory.GraphDatabaseFacadeFactory.createPlatform(GraphDatabaseFacadeFactory.java:245)
+neo4jv3_1    |  at org.neo4j.kernel.impl.factory.GraphDatabaseFacadeFactory.initFacade(GraphDatabaseFacadeFactory.java:157)
+neo4jv3_1    |  at org.neo4j.kernel.impl.factory.GraphDatabaseFacadeFactory.newFacade(GraphDatabaseFacadeFactory.java:125)
+neo4jv3_1    |  at org.neo4j.server.CommunityNeoServer.lambda$static$0(CommunityNeoServer.java:58)
+neo4jv3_1    |  at org.neo4j.server.database.LifecycleManagingDatabase.start(LifecycleManagingDatabase.java:88)
+neo4jv3_1    |  at org.neo4j.kernel.lifecycle.LifeSupport$LifecycleInstance.start(LifeSupport.java:445)
+neo4jv3_1    |  ... 5 more
+neo4jv3_1    | Caused by: java.io.FileNotFoundException: /var/lib/neo4j/logs/debug.log (Permission denied)
+neo4jv3_1    |  at java.io.FileOutputStream.open0(Native Method)
+neo4jv3_1    |  at java.io.FileOutputStream.open(FileOutputStream.java:270)
+neo4jv3_1    |  at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+neo4jv3_1    |  at org.neo4j.io.fs.DefaultFileSystemAbstraction.openAsOutputStream(DefaultFileSystemAbstraction.java:76)
+neo4jv3_1    |  at org.neo4j.io.file.Files.createOrOpenAsOutputStream(Files.java:51)
+neo4jv3_1    |  at org.neo4j.logging.RotatingFileOutputStreamSupplier.openOutputFile(RotatingFileOutputStreamSupplier.java:338)
+neo4jv3_1    |  at org.neo4j.logging.RotatingFileOutputStreamSupplier.<init>(RotatingFileOutputStreamSupplier.java:137)
+neo4jv3_1    |  at org.neo4j.logging.RotatingFileOutputStreamSupplier.<init>(RotatingFileOutputStreamSupplier.java:121)
+neo4jv3_1    |  at org.neo4j.kernel.impl.logging.StoreLogService.<init>(StoreLogService.java:180)
+neo4jv3_1    |  at org.neo4j.kernel.impl.logging.StoreLogService.<init>(StoreLogService.java:44)
+neo4jv3_1    |  at org.neo4j.kernel.impl.logging.StoreLogService$Builder.build(StoreLogService.java:124)
+neo4jv3_1    |  at org.neo4j.kernel.impl.factory.PlatformModule.createLogService(PlatformModule.java:293)
+neo4jv3_1    |  ... 12 more
+neo4jv3_1    | 2022-07-26 02:50:36.283+0000 INFO  Neo4j Server shutdown initiated by request
