@@ -15,6 +15,13 @@ sudo docker-compose stop neo4jv3
 sudo docker-compose start neo4jv3
 sudo docker-compose logs -f neo4jv3
 
+sudo docker-compose ps
+
+sudo docker-compose stop kg-python
+sudo docker-compose start kg-python
+
+sudo docker-compose logs -f
+
 cd backend
 mvn clean package
 mvn clean package -DskipTests
