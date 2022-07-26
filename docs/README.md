@@ -36,6 +36,8 @@ http://localhost:8080/#/
 test
 123456
 
+http://localhost:8080/#/graph/140
+
 cd backend
 mvn clean package
 mvn clean package -DskipTests
