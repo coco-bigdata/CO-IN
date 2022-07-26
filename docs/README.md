@@ -22,6 +22,11 @@ sudo docker-compose start kg-python
 
 sudo docker-compose logs -f
 
+mysql -h127.0.0.1 -P3310 -uroot -p kg < backend/web/src/main/resources/SQLScripts/graph_layout.sql
+mysql -h127.0.0.1 -P3310 -uroot -p kg < backend/web/src/main/resources/SQLScripts/layout.sql
+mysql -h127.0.0.1 -P3310 -uroot -p kg < backend/web/src/main/resources/SQLScripts/project.sql
+mysql -h127.0.0.1 -P3310 -uroot -p kg < backend/web/src/main/resources/SQLScripts/t_user.sql
+
 cd backend
 mvn clean package
 mvn clean package -DskipTests
