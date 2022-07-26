@@ -22,10 +22,19 @@ sudo docker-compose start kg-python
 
 sudo docker-compose logs -f
 
+kg
+mysql -h127.0.0.1 -P3310 -uroot -p
+root
+CREATE DATABASE IF NOT EXISTS `kg` DEFAULT CHARSET utf8mb4;
+
 mysql -h127.0.0.1 -P3310 -uroot -p kg < backend/web/src/main/resources/SQLScripts/graph_layout.sql
 mysql -h127.0.0.1 -P3310 -uroot -p kg < backend/web/src/main/resources/SQLScripts/layout.sql
 mysql -h127.0.0.1 -P3310 -uroot -p kg < backend/web/src/main/resources/SQLScripts/project.sql
 mysql -h127.0.0.1 -P3310 -uroot -p kg < backend/web/src/main/resources/SQLScripts/t_user.sql
+
+http://localhost:8080/#/
+test
+123456
 
 cd backend
 mvn clean package
